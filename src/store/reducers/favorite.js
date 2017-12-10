@@ -1,6 +1,6 @@
 import { FAVORITE_CHANNEL_ADD } from '../actions/constants';
 
-const initialState = localStorage.getItem('astroFavorite').split(',').map(data => Number(data)) || [];
+const initialState = localStorage.getItem('astroFavorite') && localStorage.getItem('astroFavorite').split(',').map(data => Number(data)) || [];
 const addFav = (state, id) => {
   const favotires = state;
   let newstate = [];
