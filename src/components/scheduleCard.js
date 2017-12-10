@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { connect } from 'react-redux';
-import { Grid, Card, Image, Icon, Label } from 'semantic-ui-react';
-import { addFavorite } from '../store/actions';
+import { Grid, Card, Label } from 'semantic-ui-react';
 
 const baseUrl = 'http://ams-api.astro.com.my/ams/v3/searchEvents?';
 

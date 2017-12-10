@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Loader, Grid, Modal, Header, Card } from 'semantic-ui-react';
+import { Loader } from 'semantic-ui-react';
 import { fetchChannel } from '../store/actions';
 import SceduleCard from './scheduleCard'
 
@@ -70,7 +70,7 @@ class ScheduleList extends Component {
       <div style={{ maxHeight: '500px', overflow: 'scroll', padding: '20px' }}>
         {this.letSort(channels).map(channel => (
           <SceduleCard key={channel.channelId} channel={channel} />
-				))}
+        ))}
       </div>
     );
   }

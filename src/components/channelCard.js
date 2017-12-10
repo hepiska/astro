@@ -15,8 +15,8 @@ const ChannelCard = (props) => {
           </Grid.Column>
           <Grid.Column textAlign="right" width={4}>
             {isFavorite ?
-              <Icon name="star" onClick={() => props.addFavorite(channel.channelId)} /> :
-              <Icon name="empty star" onClick={() => props.addFavorite(channel.channelId)} />}
+              <Icon style={{zIndex:10}} name="star" onClick={() => props.addFavorite(channel.channelId)} /> :
+              <Icon style={{zIndex:10}} name="empty star" onClick={() => props.addFavorite(channel.channelId)} />}
           </Grid.Column>
         </Grid>
       </Card.Content>

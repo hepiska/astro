@@ -104,6 +104,7 @@ class ChannelList extends Component {
         <Grid>
           {this.letSort(channelDetail).map(channel => (
             <Grid.Column
+              style={{ zIndex: 1 }}
               key={channel.channelId}
               computer={4}
               mobile={8}

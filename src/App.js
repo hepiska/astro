@@ -1,23 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Header } from './components';
 import MainPage from './pages/main';
-import SchedulePage from './pages/schedule'
+import SchedulePage from './pages/schedule';
 import store from './store';
 
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
+const App = () => (
+  <Provider store={store}>
+    <BrowserRouter>
       <div className="App">
-        <Header/>
-        <SchedulePage />
+        <Header />
+        <Switch>
+          <Route exact path="/" component={MainPage} />
+          <Route path="/schedule" component={SchedulePage} />
+        </Switch>
       </div>
-    </Provider>
-    );
-  }
-}
+    </BrowserRouter>
+  </Provider>
+);
 
 export default App;
