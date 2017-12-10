@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Loader, Grid, Modal, Header, Button, Image } from 'semantic-ui-react';
+import { Loader, Grid, Modal, Header, Card } from 'semantic-ui-react';
 import { fetchChannel } from '../store/actions';
+import SceduleCard from './scheduleCard'
 
 class ScheduleList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showChannel:[]
+      showChannel: [],
     };
   }
   componentDidMount() {
@@ -16,15 +17,12 @@ class ScheduleList extends Component {
     //   showChanel:this.props.channels && this.props.channels.slice(0,9)
     // })
   }
-  onScroll(event){
-
-  }
 
   fillShowChannel(channels) {
     if (channels && channels.length !== 0) {
       this.setState({
-        showChanel:channels && channels.slice(0,9)
-      })
+        showChanel: channels && channels.slice(0, 9),
+      });
     }
   }
   letSort(data) {
@@ -69,17 +67,10 @@ class ScheduleList extends Component {
       return <Loader active />;
     }
     return (
-      <div>
-        <Grid>
-          {this.letSort(channels).map(channel => (
-            <Grid.Column
-              key={channel.channelId}
-              computer={4}
-              mobile={8}
-              onClick={() => this.onChannelClick(channel)}
-            />
-					))}
-        </Grid>
+      <div style={{ maxHeight: '500px', overflow: 'scroll', padding: '20px' }}>
+        {this.letSort(channels).map(channel => (
+          <SceduleCard key={channel.channelId} channel={channel} />
+				))}
       </div>
     );
   }
